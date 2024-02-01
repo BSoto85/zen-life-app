@@ -3,18 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./About.css";
 
 const About = () => {
   return (
     <>
-      <h2 className="text-center heading-style">About the Developers</h2>
+      <div className="heading-style">
+        <h2 className="heading">About the Developers</h2>
+      </div>
       <div className="container mt-5">
         {/* Brenda Soto's Card */}
         <div className="card mb-3 card-style">
           <div className="row no-gutters">
             <div className="col-md-4 d-flex align-items-center justify-content-center p-3">
               <img
-                src="src/imgs/1516867339326.jpeg"
+                src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1706726590/jt7la0fmrgjuwfhsvrjz.jpg"
                 className="card-img rounded-circle image-style"
                 alt="Brenda Soto"
               />
@@ -58,7 +61,7 @@ const About = () => {
           <div className="row no-gutters">
             <div className="col-md-4 d-flex align-items-center justify-content-center p-3">
               <img
-                src="src/imgs/1680630192650.jpeg"
+                src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1706733856/poboyffn0n5v664iguer.jpg"
                 className="card-img rounded-circle image-style"
                 alt="Luis Tejada"
               />
@@ -101,7 +104,7 @@ const About = () => {
           <div className="row no-gutters">
             <div className="col-md-4 d-flex align-items-center justify-content-center p-3">
               <img
-                src="src/imgs/Sincere Clarke.jpg"
+                src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1706734256/mymyjj1x76p3trygimi5.jpg"
                 className="card-img rounded-circle image-style"
                 alt="Sincere Clarke"
               />
