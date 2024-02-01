@@ -11,13 +11,13 @@ const About = () => {
       <div className="heading-style">
         <h2 className="heading">About the Developers</h2>
       </div>
-      <div className="container mt-5">
-        {/* Brenda Soto's Card */}
+      <div className="container">
+        {/* Brenda Soto's Card*/}
         <div className="card mb-3 card-style">
           <div className="row no-gutters">
             <div className="col-md-4 d-flex align-items-center justify-content-center p-3">
               <img
-                src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1706726590/jt7la0fmrgjuwfhsvrjz.jpg"
+                src="https://res.cloudinary.com/dnqfg86zq/image/upload/c_crop,g_auto,h_250,w_250/jt7la0fmrgjuwfhsvrjz.jpg"
                 className="card-img rounded-circle image-style"
                 alt="Brenda Soto"
               />
@@ -36,7 +36,8 @@ const About = () => {
                   to her adaptability and eagerness to embrace new challenges in
                   the tech world.
                 </p>
-                <div className="d-flex flex-column align-items-start mt-3">
+                <p className="email-style">Email: bsoto@pursuit.org</p>
+                <div className="d-flex flex-row justify-content-center mt-3 column-gap-3">
                   <a
                     href="https://github.com/BSoto85"
                     className="btn btn-outline-dark mb-2"
@@ -49,7 +50,6 @@ const About = () => {
                   >
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                   </a>
-                  <p className="email-style">Email: bsoto@pursuit.org</p>
                 </div>
               </div>
             </div>
@@ -79,7 +79,8 @@ const About = () => {
                   journey is marked by a deep commitment to learning and a drive
                   to excel in the ever-evolving landscape of web technologies.
                 </p>
-                <div className="d-flex flex-column align-items-start mt-3">
+                <p className="email-style">Email: luistejada@pursuit.org</p>
+                <div className="d-flex flex-row justify-content-center mt-3 column-gap-3">
                   <a
                     href="https://github.com/Blui322"
                     className="btn btn-outline-dark mb-2"
@@ -92,7 +93,6 @@ const About = () => {
                   >
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                   </a>
-                  <p className="email-style">Email: luistejada@pursuit.org</p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,8 @@ const About = () => {
                   pursuit of knowledge and a strong desire to make a significant
                   impact in the tech industry through innovative web solutions.
                 </p>
-                <div className="d-flex flex-column align-items-start mt-3">
+                <p className="email-style">Email: sincereclarke@pursuit.org</p>
+                <div className="d-flex flex-row justify-content-center mt-3 column-gap-3">
                   <a
                     href="https://github.com/remyclarke"
                     className="btn btn-outline-dark mb-2"
@@ -135,9 +136,6 @@ const About = () => {
                   >
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                   </a>
-                  <p className="email-style">
-                    Email: sincereclarke@pursuit.org
-                  </p>
                 </div>
               </div>
             </div>
