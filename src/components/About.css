@@ -8,6 +8,10 @@
   background-color: #76c893;
 }
 
+.container {
+  margin-bottom: 60px;
+}
+
 .card-style {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

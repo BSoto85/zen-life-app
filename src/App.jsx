@@ -15,8 +15,10 @@ const App = () => {
   console.log(users);
 
   return (
-    <div>
-      <About />
+    <div className="view-container">
+      <div className="content-wrap">
+        <About />
+      </div>
       <Footer />
     </div>
   );
