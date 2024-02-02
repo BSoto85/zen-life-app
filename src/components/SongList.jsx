@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 
 const SongList = ({songs}) => {
-
+console.log(songs)
   const [ audio ] = useState(new Audio());
   const [ selectedSong, setselectedSong ]= useState();
 

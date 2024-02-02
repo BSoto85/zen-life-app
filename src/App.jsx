@@ -47,7 +47,7 @@ fetch(`${URL}/quotes`)
      fetch(`${URL}/music`)
     .then((response) => response.json())
     .then((data) => {
-      setMusic(data.music)
+      setMusic(data)
       
     })
      .catch((error) => console.error("Error fetching music:", error));
