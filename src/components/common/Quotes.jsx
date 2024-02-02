@@ -1,7 +1,11 @@
 import React from "react";
 
-const Quotes = () => {
-  return <div>Quotes</div>;
+const Quotes = ({ randomQuote }) => {
+  return (
+    <div>
+      <p>{randomQuote}</p>
+    </div>
+  );
 };
 
 export default Quotes;
