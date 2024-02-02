@@ -1,5 +1,6 @@
 import React from "react";
 import About from "./components/About";
+import Footer from "./components/common/Footer";
 import { useState, useEffect } from "react";
 const URL = import.meta.env.VITE_BASE_API_URL;
 
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <div>
       <About />
+      <Footer />
     </div>
   );
 };

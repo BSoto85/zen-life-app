@@ -1,0 +1,22 @@
+.footer-div {
+  margin: 0 auto;
+  display: block;
+  border: 5px solid #1a759f;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-p {
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+  padding: 15px;
+  background-color: #1a759f;
+}
+
+.footer-span {
+  color: white;
+  background-color: #1a759f;
+}
