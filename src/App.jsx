@@ -34,7 +34,7 @@ const App = () => {
       setUsers(data)
       
     })
-     .catch((error) => console.error("Error fetching data:", error));
+     .catch((error) => console.error("Error fetching users:", error));
 
 fetch(`${URL}/quotes`)
     .then((response) => response.json())
@@ -42,20 +42,20 @@ fetch(`${URL}/quotes`)
       setQuotes(data)
       
     })
-     .catch((error) => console.error("Error fetching data:", error));
+     .catch((error) => console.error("Error fetching quotes:", error));
 
      fetch(`${URL}/music`)
     .then((response) => response.json())
     .then((data) => {
-      setMusic(data)
+      setMusic(data.music)
       
     })
-     .catch((error) => console.error("Error fetching data:", error));
+     .catch((error) => console.error("Error fetching music:", error));
 
   }, []);
-console.log(users);
-  console.log(quotes);
-  console.log(music);
+// console.log(users);
+//   console.log(quotes);
+//   console.log(music);
   return (
     <>
        <Header />
@@ -67,9 +67,11 @@ console.log(users);
         <Route path="/detail/:id" element={<DetailView />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/list" element={<ListView />} />
-        
+        <Route path="/songList" element={<SongList songs={music} />} />
       </Routes>
-
+       <div>
+        <SongList songs={music} />
+       </div>
       <Footer /> 
     </>
   )
