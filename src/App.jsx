@@ -77,4 +77,5 @@ fetch(`${URL}/quotes`)
   )
 }
 
+
 export default App;
