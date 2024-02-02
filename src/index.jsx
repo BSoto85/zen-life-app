@@ -6,12 +6,14 @@ import "./index.css";
 
 const Root = () => {
   return (
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  );
+
+  <BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BrowserRouter>
+  )
+
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
