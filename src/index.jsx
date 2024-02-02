@@ -5,11 +5,13 @@ import App from "./App.jsx";
 import "./index.css";
 
 const Root = () => {
+  return (
   <BrowserRouter>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </BrowserRouter>;
+  </BrowserRouter>
+  )
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
