@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Quotes.css";
 
-const Quotes = ({ randomQuote }) => {
+const Quotes = ({ randomQuote, handleOnClick, starred }) => {
   return (
     <div>
-      <p>{randomQuote}</p>
+      <p className="quote-p">
+        {randomQuote}
+        <span onClick={handleOnClick} className="quote-button">
+          {starred ? "★" : "✩"}
+        </span>
+      </p>
     </div>
   );
 };
