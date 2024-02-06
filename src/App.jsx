@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/common/Header";
-import NavbarComponent from "./components/common/Navbar";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,11 +8,7 @@ const App = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <div>
-      <Header toggleSidebar={toggleSidebar} />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
