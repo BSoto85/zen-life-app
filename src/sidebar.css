@@ -1,4 +1,3 @@
-/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +10,6 @@ html {
   overflow-x: hidden;
 }
 
-/* Navbar styling */
 .navbar {
   background-color: transparent !important;
 }
@@ -24,7 +22,6 @@ html {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Sidebar styling */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -34,10 +31,10 @@ html {
   left: -300px;
   width: 300px;
   height: 100vh;
-  background: #333; /* Main sidebar background */
+  background: #333;
   transition: left 0.3s ease-out;
   z-index: 1040;
-  padding-top: 20px; /* Reduced padding to move dashboard to the very top */
+  padding-top: 20px;
 }
 
 .sidebar-header {
@@ -45,7 +42,7 @@ html {
   color: #1a759f;
   padding: 20px;
   text-align: center;
-  border-bottom: 2px solid #76c893; /* Attractive spacing with a border */
+  border-bottom: 2px solid #76c893;
 }
 
 .sidebar-footer {
@@ -53,7 +50,7 @@ html {
   color: #1a759f;
   padding: 20px;
   text-align: center;
-  border-top: 2px solid #76c893; /* Attractive spacing with a border */
+  border-top: 2px solid #76c893;
 }
 
 .nav-links li {
@@ -61,20 +58,20 @@ html {
 }
 
 .nav-links a {
-  background: #76c893; /* Lighter green for contrast */
-  color: #1a759f; /* Deep blue for text */
+  background: #76c893;
+  color: #1a759f;
   text-decoration: none;
   display: block;
   padding: 10px 20px;
   text-align: center;
   width: 100%;
   transition: background-color 0.3s, transform 0.3s;
-  border-radius: 5px; /* Slight rounding for a softer look */
+  border-radius: 5px;
 }
 
 .nav-links a:hover {
-  transform: translateY(-2px); /* Subtle 3D hover effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Toned down shadow for less glow */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links a#home {
@@ -101,14 +98,12 @@ html {
   display: block;
 }
 
-/* Enhancements for responsiveness and additional styling */
 @media (min-width: 992px) {
   .sidebar {
     padding-top: 0;
   }
 }
 
-/* Additional styles to align with your design needs */
 .header-container {
   position: relative;
   width: 100%;

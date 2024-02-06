@@ -3,7 +3,6 @@ import { Routes, Route, useParams } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import NavBar from "./components/common/NavBar";
 import Quotes from "./components/common/Quotes";
 import About from "./components/About";
 import Aside from "./components/Aside";
