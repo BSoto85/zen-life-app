@@ -1,44 +1,55 @@
-import React, { useState } from "react";
-
+import React, { useState, useRef } from "react";
+import "./SongList.css"
 
 
 const SongList = ({songs}) => {
 console.log(songs)
-  const [ audio ] = useState(new Audio());
-  const [ selectedSong, setselectedSong ]= useState();
+  
+  const [ selectedSong, setselectedSong ]= useState(null);
+  const videoRef = useRef(null);
 
 
   const handleSongClick = (song) =>{
     if (selectedSong && selectedSong.id === song.id){
-      if (audio.paused){
-        audio.play();
+      togglePlayPause();
       } else {
-        audio.pause();
+       setselectedSong(song);
+       playSong(song);
       }
-    } else {
-      audio.src = song.url;
-      audio.play();
-      setselectedSong(song);
-    }
-  };
+    };
 
-  audio.addEventListener("ended", () => {
+const playSong = (song) =>{
+  if(videoRef.current){
+      videoRef.current.src = song.url;
+      videoRef.current.play();
+   
+  videoRef.current.onended = () => {
     setselectedSong(null);
-  });
+  };
+}
+ };
 
+ const togglePlayPause = () => {
+  if(videoRef.current.paused){
+    videoRef.current.play();
+  } else {
+    videoRef.current.pause();
+  }
+ };
+ 
 return (
-<div>
+<div className="song-list-container">
   <h1>Song List</h1>
-  <ul>
+  <ol className="song-list">
     {songs && songs.map((song) => (
       <li key={song.id} onClick={() => handleSongClick(song)}>{song.songName}</li>
     ))}
-  </ul>
+  </ol>
   {selectedSong && (
-    <div>
+    <div className="now-playing">
       <h2>Now Playing</h2>
       <p>Song: {selectedSong.songName}</p>
-      <p>ID: {selectedSong.id}</p>
+      <video ref={videoRef} controls width="400" height="300" loop />
     </div>
   )}
 </div>

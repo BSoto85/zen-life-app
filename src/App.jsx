@@ -64,14 +64,12 @@ fetch(`${URL}/quotes`)
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<DetailView />} />
+        <Route path="/profile/:id" element={<DetailView />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/list" element={<ListView />} />
-        <Route path="/songList" element={<SongList songs={music} />} />
+        <Route path="/songs" element={<ListView music={music} />} />
+        {/* <Route path="/songList" element={<SongList songs={music} />} /> */}
       </Routes>
-       <div>
-        <SongList songs={music} />
-       </div>
+      
       <Footer /> 
     </>
   )
