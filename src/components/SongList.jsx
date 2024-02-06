@@ -59,7 +59,7 @@ const SongList = () => {
         <div className="now-playing">
           <h2>Now Playing</h2>
           <p>Song: {selectedSong.songName}</p>
-          <video ref={videoRef} controls width="400" height="300" loop />
+          <video ref={videoRef} controls width="390" height="300" loop />
         </div>
       )}
     </div>
