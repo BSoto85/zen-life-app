@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import QuotesForm from "./QuotesForm";
 
-const Favorites = ({ favorites, setFavorites }) => {
+const Favorites = ({ user, favorites, setFavorites }) => {
   const { id } = useParams();
 
   // function handleDelete() {
@@ -16,7 +16,7 @@ const Favorites = ({ favorites, setFavorites }) => {
 
   return (
     <div>
-      <QuotesForm setFavorites={setFavorites} />
+      <QuotesForm user={user} setFavorites={setFavorites} />
       <ul>
         {favorites.length ? (
           favorites.map((quote) => (
