@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+const SongList = () => {
+  const [songs, setSongs] = useState([]);
+  const [audio] = useState(new Audio());
+  const [selectedSong, setselectedSong] = useState();
 
+  useEffect(() => {
+    getAllMusic()
+      .then((data) => {
+        setSongs(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-const SongList = ({songs}) => {
-console.log(songs)
-  const [ audio ] = useState(new Audio());
-  const [ selectedSong, setselectedSong ]= useState();
-
-
-  const handleSongClick = (song) =>{
-    if (selectedSong && selectedSong.id === song.id){
-      if (audio.paused){
+  const handleSongClick = (song) => {
+    if (selectedSong && selectedSong.id === song.id) {
+      if (audio.paused) {
         audio.play();
       } else {
         audio.pause();
@@ -26,23 +33,26 @@ console.log(songs)
     setselectedSong(null);
   });
 
-return (
-<div>
-  <h1>Song List</h1>
-  <ul>
-    {songs && songs.map((song) => (
-      <li key={song.id} onClick={() => handleSongClick(song)}>{song.songName}</li>
-    ))}
-  </ul>
-  {selectedSong && (
+  return (
     <div>
-      <h2>Now Playing</h2>
-      <p>Song: {selectedSong.songName}</p>
-      <p>ID: {selectedSong.id}</p>
+      <h1>Song List</h1>
+      <ul>
+        {songs &&
+          songs.map((song) => (
+            <li key={song.id} onClick={() => handleSongClick(song)}>
+              {song.songName}
+            </li>
+          ))}
+      </ul>
+      {selectedSong && (
+        <div>
+          <h2>Now Playing</h2>
+          <p>Song: {selectedSong.songName}</p>
+          <p>ID: {selectedSong.id}</p>
+        </div>
+      )}
     </div>
-  )}
-</div>
-);
+  );
 };
 
 export default SongList;
