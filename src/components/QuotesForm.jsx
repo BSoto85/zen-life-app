@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOneUser, createQuoteForUser } from "../api/fetch";
+import { createQuoteForUser } from "../api/fetch";
 
-const QuotesForm = ({ setFavorites }) => {
+const QuotesForm = ({ user, setFavorites }) => {
+  console.log(user);
   const [quote, setQuote] = useState({
     author: "",
     quote: "",
+    authorId: user.id,
   });
 
   const { id } = useParams();
@@ -30,6 +32,7 @@ const QuotesForm = ({ setFavorites }) => {
     setQuote({
       author: "",
       quote: "",
+      authorId: user.id,
     });
   };
 

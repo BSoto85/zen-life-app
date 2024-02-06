@@ -12,9 +12,9 @@ export function getAllMusic() {
   return fetch(`${URL}/music`).then((res) => res.json());
 }
 
-export function getOneUser(id) {
-  return fetch(`${URL}/users/${id}`).then((res) => res.json());
-}
+// export function getOneUser(id) {
+//   return fetch(`${URL}/users/${id}`).then((res) => res.json());
+// }
 
 export function createQuoteForUser(quote, id) {
   const options = {

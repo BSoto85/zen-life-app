@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Quotes.css";
 import { getAllQuotes } from "../../api/fetch";
 
-const Quotes = ({ favorites, setFavorites }) => {
+const Quotes = ({ user, favorites, setFavorites }) => {
   const [quotes, setQuotes] = useState([]);
   const [randomQuote, setRandomQuote] = useState("");
   const [randomQuoteId, setRandomQuoteId] = useState("");
-
   const [starred, setStarred] = useState(false);
 
   const pickRandomQuote = (quotes) => {
@@ -20,6 +19,7 @@ const Quotes = ({ favorites, setFavorites }) => {
   };
 
   const handleOnClick = () => {
+    //This should be a patch to update the savedQuotes array
     if (starred === false) {
       const quoteToFavorite = quotes.find((quote) => {
         return quote.id === randomQuoteId;
