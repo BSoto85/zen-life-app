@@ -1,0 +1,13 @@
+.quote-p {
+  padding: 5px;
+  text-align: center;
+}
+
+.quote-button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-large;
+  border: none;
+  margin-left: 3px;
+  height: fit-content;
+  color: goldenrod;
+}

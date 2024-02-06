@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const LandingPage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [users, setUsers] = useState([]);
 
-export default LandingPage
+  useEffect(() => {
+    getAllUsers()
+      .then((data) => {
+        setUsers(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  return <div></div>;
+};
+
+export default LandingPage;
