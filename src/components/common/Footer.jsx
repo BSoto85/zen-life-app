@@ -1,7 +1,15 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  const year = new Date().getFullYear();
+  return (
+    <div className="footer-div">
+      <p className="footer-p">
+        Slice of Pi <span className="footer-span">Copyright {year}</span>
+      </p>
+    </div>
+  );
 };
 
 export default Footer;

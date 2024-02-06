@@ -1,41 +1,50 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./SongList.css"
 
 
-const SongList = ({songs}) => {
-console.log(songs)
-  
+const SongList = () => {
+  const [songs, setSongs] = useState([]);
   const [ selectedSong, setselectedSong ]= useState(null);
   const videoRef = useRef(null);
 
 
   const handleSongClick = (song) =>{
     if (selectedSong && selectedSong.id === song.id){
-      togglePlayPause();
-      } else {
+      togglePlayPause()
+    } else {
        setselectedSong(song);
        playSong(song);
       }
-    };
+  }
 
 const playSong = (song) =>{
   if(videoRef.current){
       videoRef.current.src = song.url;
       videoRef.current.play();
-   
   videoRef.current.onended = () => {
     setselectedSong(null);
-  };
+  }
+  }
 }
- };
-
- const togglePlayPause = () => {
+    
+    const togglePlayPause = () => {
   if(videoRef.current.paused){
     videoRef.current.play();
   } else {
     videoRef.current.pause();
   }
- };
+ }
+    
+  useEffect(() => {
+    getAllMusic()
+      .then((data) => {
+        setSongs(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
  
 return (
 <div className="song-list-container">
@@ -51,9 +60,7 @@ return (
       <p>Song: {selectedSong.songName}</p>
       <video ref={videoRef} controls width="400" height="300" loop />
     </div>
-  )}
-</div>
-);
+  );
 };
 
 export default SongList;
