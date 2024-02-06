@@ -1,4 +1,4 @@
-import React, { useState }, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/common/Header";
@@ -16,10 +16,33 @@ import SongList from "./components/SongList";
 const URL = import.meta.env.VITE_BASE_API_URL;
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./App.css";
 
 const App = () => {
-  return <div>Basic Pursuit React Starter</div>;
+  const [favorites, setFavorites] = useState([]);
+
+  const { id } = useParams();
+
+  return (
+    <>
+      <Header />
+      <NavBar />
+      <Quotes favorites={favorites} setFavorites={setFavorites} />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile/:id" element={<ProfileView />} />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
+        <Route path="/songs" element={<ListView />} />
+        {/* <Route path="/songList" element={<SongList songs={music} />} /> */}
+      </Routes>
+      <Footer />
+    </>
+  );
 };
 
 export default App;
