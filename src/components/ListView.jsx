@@ -1,7 +1,13 @@
 import React from "react";
+import SongList from "./SongList";
 
-const ListView = () => {
-  return <div>ListView</div>;
+
+const ListView = ({music}) => {
+  return (
+       <div>
+        <SongList songs={music} />
+       </div>
+  )
 };
 
 export default ListView;
