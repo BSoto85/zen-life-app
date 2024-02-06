@@ -31,11 +31,16 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile/:id" element={<ProfileView />} />
-        <Route path="/favorites" element={<Favorites favorites={favorites} setFavorites={setFavorites}/>} />
-        <Route path="/songs" element={<ListView music={music} />} />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
+        <Route path="/songs" element={<ListView />} />
         {/* <Route path="/songList" element={<SongList songs={music} />} /> */}
       </Routes>
-      <Footer /> 
+      <Footer />
     </>
   );
 };
