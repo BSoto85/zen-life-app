@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Quotes.css";
-import { getAllQuotes } from "../../api/fetch";
+import { deleteQuote, getAllQuotes } from "../../api/fetch";
 
 const Quotes = ({ favorites, setFavorites }) => {
   const [quotes, setQuotes] = useState([]);
@@ -26,7 +26,7 @@ const Quotes = ({ favorites, setFavorites }) => {
       });
       setFavorites([...favorites, quoteToFavorite]);
     } else {
-      // removeFavorite()
+      deleteQuote();
     }
     setStarred(!starred);
   };
