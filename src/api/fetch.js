@@ -16,18 +16,30 @@ export function getAllMusic() {
 //   return fetch(`${URL}/users/${id}`).then((res) => res.json());
 // }
 
-export function createQuoteForUser(quote, id) {
+export function addQuoteToData(quote) {
   const options = {
     method: "POST",
     body: JSON.stringify(quote),
     headers: { "Content-Type": "application/json" },
   };
-  return fetch(`${URL}/users/${id}`, options);
+  return fetch(`${URL}/quotes`, options);
+}
+
+export function createQuoteForUser(quote) {
+  const options = {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "PATCH",
+    body: JSON.stringify(quote),
+  };
+  return fetch(`${URL}/users`, options);
 }
 
 export function deleteQuote(id) {
   const options = { method: "DELETE" };
-  return fetch(`${URL}/users/${id}`, options);
+  return fetch(`${URL}/quotes/${id}`, options);
 }
 
 // export function updateMovie(id, movie) {

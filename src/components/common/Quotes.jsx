@@ -7,6 +7,7 @@ const Quotes = ({ user, favorites, setFavorites }) => {
   const [randomQuote, setRandomQuote] = useState("");
   const [randomQuoteId, setRandomQuoteId] = useState("");
   const [starred, setStarred] = useState(false);
+  const [savedQuotes, setSavedQuotes] = useState(user.savedQuotes);
 
   const pickRandomQuote = (quotes) => {
     if (quotes.length > 0) {
@@ -25,6 +26,8 @@ const Quotes = ({ user, favorites, setFavorites }) => {
         return quote.id === randomQuoteId;
       });
       setFavorites([...favorites, quoteToFavorite]);
+      savedQuotes.length > 0 &&
+        setSavedQuotes([...savedQuotes, quoteToFavorite]);
     } else {
       // removeFavorite()
     }

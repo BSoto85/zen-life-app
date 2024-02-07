@@ -3,18 +3,13 @@ import { Routes, Route, useParams } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import NavBar from "./components/common/NavBar";
 import Quotes from "./components/common/Quotes";
 import About from "./components/About";
-import Aside from "./components/Aside";
-import BackgroundList from "./components/BackgroundList";
-import ProfileView from "./components/ProfileView";
 import Favorites from "./components/Favorites";
 import ListView from "./components/ListView";
-import SongList from "./components/SongList";
+
 import { getAllUsers } from "./api/fetch";
 
-const URL = import.meta.env.VITE_BASE_API_URL;
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -29,7 +24,6 @@ const App = () => {
       .then((data) => {
         setUser(data[0]);
         setFavorites(data[0].savedQuotes);
-        console.log(data[0]);
       })
       .catch((error) => {
         console.error(error);
@@ -39,7 +33,6 @@ const App = () => {
   return (
     <>
       <Header />
-      <NavBar />
       <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
       <Routes>
         <Route
