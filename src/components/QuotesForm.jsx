@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { createQuoteForUser } from "../api/fetch";
+import { Form, Button } from "react-bootstrap";
+
+import "../index.css";
 
 const QuotesForm = ({ user, setFavorites }) => {
-  console.log(user);
   const [quote, setQuote] = useState({
     author: "",
     quote: "",
@@ -11,8 +13,6 @@ const QuotesForm = ({ user, setFavorites }) => {
   });
 
   const { id } = useParams();
-
-  // const savedQuotes = user.savedQuotes;
 
   function handleOnChange(e) {
     setQuote({
@@ -37,26 +37,42 @@ const QuotesForm = ({ user, setFavorites }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} action="submit">
-        <label htmlFor="quote">Add a quote:</label>
-        <input
-          onChange={handleOnChange}
-          type="text"
-          id="quote"
-          name="quote"
-          value={quote.quote}
-        />
-        <label htmlFor="author">Add author</label>
-        <input
-          onChange={handleOnChange}
-          type="text"
-          id="author"
-          name="author"
-          value={quote.author}
-        />
-        <button type="submit">Add</button>
-      </form>
+    <div className="container mt-5">
+      <div className="form-container p-4 quotes-form-container">
+        {" "}
+        {/* Use quotes-form-container class for distinctive styling */}
+        <h2 className="form-title quotes-form-title">Add a New Quote</h2>{" "}
+        {/* Use quotes-form-title class for distinctive styling */}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="quote">
+            <Form.Label className="distinctive-text quotes-label">
+              Quote:
+            </Form.Label>{" "}
+            {/* Use quotes-label class for distinctive styling */}
+            <Form.Control
+              type="text"
+              placeholder="Enter quote"
+              value={quote.quote}
+              onChange={handleOnChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="author">
+            <Form.Label className="distinctive-text quotes-label">
+              Author:
+            </Form.Label>{" "}
+            <Form.Control
+              type="text"
+              placeholder="Enter author"
+              value={quote.author}
+              onChange={handleOnChange}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" className="quotes-button">
+            {" "}
+            Add Quote
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };
