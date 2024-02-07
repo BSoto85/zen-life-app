@@ -1,7 +1,6 @@
-/* 
 import React, { useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import videoSource from "/Users/sincereclarke/Development/module-three/zen-life-app/src/sources/mixkit-huge-trees-in-a-large-green-forest-5040.mp4"; // Make sure to use the correct path
+// import videoSource from "/Users/sincereclarke/Development/module-three/zen-life-app/src/sources/mixkit-huge-trees-in-a-large-green-forest-5040.mp4"; // Make sure to use the correct path
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../sidebar.css";
 
@@ -42,8 +41,8 @@ const Header = () => {
       </Navbar>
       <div className="header-container">
         <video className="header-video" autoPlay muted loop>
-          <source src={videoSource} type="video/mp4" />
-          Your browser does not support HTML5 video.
+          {/* <source src={videoSource} type="video/mp4" />
+          Your browser does not support HTML5 video. */}
         </video>
         <div className="video-overlay-text">
           <h1>Welcome to Zen Life</h1>
@@ -85,5 +84,3 @@ const Header = () => {
 };
 
 export default Header;
-
-*/

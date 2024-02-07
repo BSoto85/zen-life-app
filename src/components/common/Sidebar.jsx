@@ -1,9 +1,7 @@
 import React from "react";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  return (
-
-  );
+  return <div></div>;
 };
 
 export default Sidebar;
