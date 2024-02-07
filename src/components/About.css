@@ -4,8 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Playfair Display", serif;
-  background-color: #76c893;
 }
 
 .container {
@@ -15,10 +13,11 @@
 .card-style {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to right, #34a0a4, #b5e48c);
+  background: linear-gradient(to right, #185b20, #44a747, #5fc360);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 .image-style {
@@ -29,16 +28,19 @@
 }
 
 .title-style {
-  color: #1a759f;
+  color: #a5930d;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 2em;
 }
 
 .email-style {
   font-weight: bold;
-  color: #1a759f;
+  color: #a5930d;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
+
 .heading-style {
   color: white;
   border-radius: 50px;
@@ -52,7 +54,7 @@
 }
 
 .heading {
-  background-color: #1a759f;
+  background-color: #20822f;
   padding: 10px;
   border-radius: 30px;
 }

@@ -1,6 +1,6 @@
 .footer-div {
   display: block;
-  border: 5px solid #1a759f;
+  border: 5px solid #20822f;
   border-radius: 10px;
   position: fixed;
   bottom: 0;
@@ -12,10 +12,10 @@
   font-size: 12px;
   text-align: center;
   padding: 15px;
-  background-color: #1a759f;
+  background-color: #20822f;
 }
 
 .footer-span {
   color: white;
-  background-color: #1a759f;
+  background-color: #20822f;
 }

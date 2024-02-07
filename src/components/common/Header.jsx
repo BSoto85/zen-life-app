@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-// import videoSource from "/Users/sincereclarke/Development/module-three/zen-life-app/src/sources/mixkit-huge-trees-in-a-large-green-forest-5040.mp4"; // Make sure to use the correct path
+import { Link } from "react-router-dom";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { FaBars } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../sidebar.css";
 
@@ -14,71 +15,131 @@ const Header = () => {
   return (
     <>
       <Navbar
-        variant="light"
+        bg="dark"
+        variant="dark"
         fixed="top"
-        expand="lg"
-        className="transparent-navbar"
+        className="fixed-top"
+        style={{ height: "80px" }}
       >
-        <Container fluid>
-          <Navbar.Brand href="#home" className="text-dark">
+        <Container style={{ marginTop: "10px" }}>
+          <Navbar.Brand
+            as={Link}
+            to="/"
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontWeight: "bold",
+              fontSize: "32px",
+              color: "#fff",
+              marginBottom: "10px",
+            }}
+          >
             Zen Life
           </Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
+          <Nav className="ml-auto d-none d-md-flex">
+            <Nav.Link
+              as={Link}
+              to="/"
+              style={{ color: "#fff", marginRight: "10px" }}
+            >
+              Home
+              <div className="hover-line"></div>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/about"
+              style={{ color: "#fff", marginRight: "10px" }}
+            >
+              About
+              <div className="hover-line"></div>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/profile"
+              style={{ color: "#fff", marginRight: "10px" }}
+            >
+              Profile
+              <div className="hover-line"></div>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/favorites"
+              style={{ color: "#fff", marginRight: "10px" }}
+            >
+              Favorites
+              <div className="hover-line"></div>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/songs"
+              style={{ color: "#fff", marginRight: "10px" }}
+            >
+              Songs
+              <div className="hover-line"></div>
+            </Nav.Link>
+          </Nav>
+          <Button
+            className="d-md-none"
             onClick={toggleSidebar}
-          />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#features" className="text-dark">
-                Features
-              </Nav.Link>
-              <Nav.Link href="#pricing" className="text-dark">
-                Pricing
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+            aria-label="Toggle Sidebar"
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "#fff",
+              fontSize: "24px",
+            }}
+          >
+            <FaBars style={{ transform: "rotate(45deg)" }} />
+          </Button>
         </Container>
       </Navbar>
-      <div className="header-container">
-        <video className="header-video" autoPlay muted loop>
-          {/* <source src={videoSource} type="video/mp4" />
-          Your browser does not support HTML5 video. */}
-        </video>
-        <div className="video-overlay-text">
-          <h1>Welcome to Zen Life</h1>
-          <p>Explore the beauty of nature.</p>
+
+      <div
+        className={`offcanvas offcanvas-end${isSidebarOpen ? " show" : ""}`}
+        tabIndex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+            Offcanvas
+          </h5>
+          <Button
+            type="button"
+            className="btn-close"
+            onClick={toggleSidebar}
+            aria-label="Close"
+          ></Button>
+        </div>
+        <div className="offcanvas-body">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/favorites" className="nav-link">
+                Favorites
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/songs" className="nav-link">
+                Songs
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
-      {isSidebarOpen && (
-        <>
-          <div className="overlay" onClick={toggleSidebar}></div>
-          <div className={`sidebar ${isSidebarOpen ? "show-sidebar" : ""}`}>
-            <div className="sidebar-header">
-              <h2>Dashboard</h2>
-            </div>
-            <ul className="nav-links">
-              <li>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#services">Services</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-              <li>
-                <a href="#feedback">Feedback</a>
-              </li>
-            </ul>
-            <div className="sidebar-footer">
-              <p>Footer Content</p>
-            </div>
-          </div>
-        </>
-      )}
     </>
   );
 };
