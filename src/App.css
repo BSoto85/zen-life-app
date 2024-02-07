@@ -2,8 +2,13 @@
 
 html {
   font-family: "Playfair Display", serif !important;
-  /* height: 100%;
-  overflow-x: hidden; */
+}
+
+.app-style {
+  background-image: url("./images/css-pattern-by-magicpattern.png");
+  background-size: "cover";
+  background-attachment: "fixed";
+  min-height: "100vh";
 }
 
 /* b5e48c

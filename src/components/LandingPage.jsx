@@ -3,7 +3,7 @@ import { getAllUsers } from "../api/fetch";
 import "../index.css";
 
 const LandingPage = ({ setUser }) => {
-  const [user, setUserLocal] = useState({ names: { firstName: "" } });
+  const [userLocal, setUserLocal] = useState({ names: { firstName: "" } });
 
   useEffect(() => {
     getAllUsers()

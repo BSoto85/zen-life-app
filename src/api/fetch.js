@@ -12,34 +12,35 @@ export function getAllMusic() {
   return fetch(`${URL}/music`).then((res) => res.json());
 }
 
+export function getAllFavorites() {
+  return fetch(`${URL}/favorites`).then((res) => res.json());
+}
+
 // export function getOneUser(id) {
 //   return fetch(`${URL}/users/${id}`).then((res) => res.json());
 // }
 
-export function addQuoteToData(quote) {
+export function addQuoteToFavorites(quote) {
   const options = {
     method: "POST",
     body: JSON.stringify(quote),
     headers: { "Content-Type": "application/json" },
   };
-  return fetch(`${URL}/quotes`, options);
+  return fetch(`${URL}/favorites`, options).then((res) => res.json());
 }
 
-export function createQuoteForUser(quote) {
+export function createNewQuote(quote) {
   const options = {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "PATCH",
+    method: "POST",
     body: JSON.stringify(quote),
+    headers: { "Content-Type": "application/json" },
   };
-  return fetch(`${URL}/users`, options);
+  return fetch(`${URL}/favorites`, options).then((res) => res.json());
 }
 
 export function deleteQuote(id) {
   const options = { method: "DELETE" };
-  return fetch(`${URL}/quotes/${id}`, options);
+  return fetch(`${URL}/favorites/${id}`, options).then((res) => res.json());
 }
 
 // export function updateMovie(id, movie) {
