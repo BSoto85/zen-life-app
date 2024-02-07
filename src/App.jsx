@@ -9,7 +9,6 @@ import Favorites from "./components/Favorites";
 import ListView from "./components/ListView";
 
 import { getAllUsers } from "./api/fetch";
-import bgImage from "./source/css-pattern-by-magicpattern.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -32,16 +31,10 @@ const App = () => {
       });
   }, []);
 
-  const appStyle = {
-    backgroundImage: `url(${bgImage})`,
-    backgroundSize: "cover",
-    backgroundAttachment: "fixed",
-    minHeight: "100vh",
-  };
-
   return (
-    <div style={appStyle}>
+    <div className="app-style">
       <Header />
+      <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
       <div className="content-wrapper">
         <Routes>
           <Route
@@ -49,20 +42,14 @@ const App = () => {
             element={<LandingPage user={user} setUser={setUser} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/profile/:id" element={<ProfileView />} />
           <Route
             path="/favorites"
             element={
-              <Favorites
-                favorites={favorites}
-                setFavorites={setFavorites}
-                user={user}
-              />
+              <Favorites favorites={favorites} setFavorites={setFavorites} />
             }
           />
           <Route path="/songs" element={<ListView />} />
         </Routes>
-        <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
         <Footer />
       </div>
     </div>

@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { createQuoteForUser, getAllQuotes, addQuoteToData } from "../api/fetch";
+import {
+  getAllFavorites,
+  createNewQuote,
+  addQuoteToFavorites,
+} from "../api/fetch";
 import { Form, Button } from "react-bootstrap";
 import "../index.css";
 
-
-const QuotesForm = ({ user, setFavorites }) => {
+const QuotesForm = ({ favorites, setFavorites }) => {
   const [quote, setQuote] = useState({
     author: "",
     quote: "",
-    authorId: user.id,
   });
-  const [quotes, setQuotes] = useState([]);
-
-  // const { id } = useParams();
 
   function handleOnChange(e) {
     setQuote({
@@ -24,33 +23,29 @@ const QuotesForm = ({ user, setFavorites }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addQuoteToData()
-      .then((res) => res.json())
-      .then((data) => {
-        setQuotes([...data, quote]);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    createQuoteForUser(quote)
-      .then((res) => res.json())
-      .then((data) => setFavorites([...data[0].savedQuotes, quote]));
+    createNewQuote(quote).then((data) => {
+      console.log("-------------", favorites);
+      favorites.length === 0
+        ? setFavorites([data])
+        : setFavorites([...favorites, data]);
+    });
     setQuote({
       author: "",
       quote: "",
-      authorId: user.id,
     });
   };
 
   useEffect(() => {
-    getAllQuotes()
+    getAllFavorites()
       .then((data) => {
-        setQuotes(data);
+        setFavorites(data);
       })
       .catch((error) => {
-        console.error(error);
+        console.error("Failed to fetch Favorites", error);
       });
   }, []);
+
+  useEffect(() => {}, [favorites]);
 
   return (
     <div className="container mt-5">

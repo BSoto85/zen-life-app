@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Quotes.css";
-import { getAllQuotes } from "../../api/fetch";
+import {
+  addQuoteToFavorites,
+  deleteQuote,
+  getAllQuotes,
+  getAllFavorites,
+} from "../../api/fetch";
 
-const Quotes = ({ user, favorites, setFavorites }) => {
+const Quotes = ({ favorites, setFavorites }) => {
   const [quotes, setQuotes] = useState([]);
   const [randomQuote, setRandomQuote] = useState("");
   const [randomQuoteId, setRandomQuoteId] = useState("");
   const [starred, setStarred] = useState(false);
-  const [savedQuotes, setSavedQuotes] = useState(user.savedQuotes);
 
   const pickRandomQuote = (quotes) => {
     if (quotes.length > 0) {
@@ -20,28 +24,41 @@ const Quotes = ({ user, favorites, setFavorites }) => {
   };
 
   const handleOnClick = () => {
-    //This should be a patch to update the savedQuotes array
     if (starred === false) {
       const quoteToFavorite = quotes.find((quote) => {
         return quote.id === randomQuoteId;
       });
-      setFavorites([...favorites, quoteToFavorite]);
-      savedQuotes.length > 0 &&
-        setSavedQuotes([...savedQuotes, quoteToFavorite]);
+      addQuoteToFavorites(quoteToFavorite).then((data) => {
+        console.log("Data from post request", data);
+        favorites.length === 0
+          ? setFavorites([quoteToFavorite])
+          : setFavorites([...favorites, quoteToFavorite]);
+      });
     } else {
-      // removeFavorite()
+      deleteQuote(randomQuoteId)
+        .then(
+          getAllFavorites().then((data) => {
+            console.log("------", data);
+            setFavorites(data);
+          })
+        )
+        .catch((error) => {
+          console.error(error);
+        });
     }
     setStarred(!starred);
   };
 
   useEffect(() => {
     if (randomQuoteId !== "") {
-      const isFavorited = favorites.includes(
+      const isFavorited = favorites.filter(
         (quote) => quote.id === randomQuoteId
       );
-      isFavorited ? setStarred(true) : setStarred(false);
+      isFavorited.length > 0 ? setStarred(true) : setStarred(false);
     }
   }, [randomQuoteId]);
+
+  useEffect(() => {}, [favorites]);
 
   useEffect(() => {
     getAllQuotes()
