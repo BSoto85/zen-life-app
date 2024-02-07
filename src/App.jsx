@@ -5,9 +5,9 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import Quotes from "./components/common/Quotes";
 import About from "./components/About";
-import ProfileView from "./components/ProfileView";
 import Favorites from "./components/Favorites";
 import ListView from "./components/ListView";
+
 import { getAllUsers } from "./api/fetch";
 import bgImage from "./source/css-pattern-by-magicpattern.png";
 

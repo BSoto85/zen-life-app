@@ -1,3 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: transparent !important;
+}
+
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -17,6 +41,18 @@
 .hamburger-icon {
   color: white;
   font-size: 24px;
+  background: #333;
+  transition: left 0.3s ease-out;
+  z-index: 1040;
+  padding-top: 20px;
+}
+
+.sidebar-header {
+  background: #b5e48c;
+  color: #1a759f;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #76c893;
 }
 
 .sidebar-header,

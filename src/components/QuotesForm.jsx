@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { createQuoteForUser } from "../api/fetch";
+import { createQuoteForUser, getAllQuotes, addQuoteToData } from "../api/fetch";
 import { Form, Button } from "react-bootstrap";
-
 import "../index.css";
+
 
 const QuotesForm = ({ user, setFavorites }) => {
   const [quote, setQuote] = useState({
@@ -11,8 +11,9 @@ const QuotesForm = ({ user, setFavorites }) => {
     quote: "",
     authorId: user.id,
   });
+  const [quotes, setQuotes] = useState([]);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   function handleOnChange(e) {
     setQuote({
@@ -23,18 +24,33 @@ const QuotesForm = ({ user, setFavorites }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createQuoteForUser(quote, id)
+    addQuoteToData()
       .then((res) => res.json())
-      .then((data) => setFavorites([...data.savedQuotes, quote]))
+      .then((data) => {
+        setQuotes([...data, quote]);
+      })
       .catch((error) => {
         console.error(error);
       });
+    createQuoteForUser(quote)
+      .then((res) => res.json())
+      .then((data) => setFavorites([...data[0].savedQuotes, quote]));
     setQuote({
       author: "",
       quote: "",
       authorId: user.id,
     });
   };
+
+  useEffect(() => {
+    getAllQuotes()
+      .then((data) => {
+        setQuotes(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div className="container mt-5">

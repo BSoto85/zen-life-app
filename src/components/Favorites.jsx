@@ -6,13 +6,13 @@ import QuotesForm from "./QuotesForm";
 const Favorites = ({ user, favorites, setFavorites }) => {
   const { id } = useParams();
 
-  // function handleDelete() {
-  //   deleteQuote(id)
-  //     .then(() => setFavorites())
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
+  function handleDelete() {
+    deleteQuote(id)
+      .then(() => setFavorites())
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <div>
