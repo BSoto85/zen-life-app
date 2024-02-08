@@ -9,18 +9,19 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 20px;
+  padding-bottom: 25px;
   margin-bottom: 75px;
   background: rgb(34, 193, 195);
   background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
 }
 
 .song-list {
-  list-style-type: square;
+  list-style-type:decimal;
   list-style-position: inside;
   display: grid;
   flex-wrap: wrap;
   gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .song-list {
