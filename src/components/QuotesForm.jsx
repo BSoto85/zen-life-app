@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import {
-  getAllFavorites,
-  createNewQuote,
-  addQuoteToFavorites,
-} from "../api/fetch";
+import { getAllFavorites, createNewQuote } from "../api/fetch";
 import { Form, Button } from "react-bootstrap";
 import "../index.css";
 

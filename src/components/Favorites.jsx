@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
 import QuotesForm from "./QuotesForm";
 import { deleteQuote, getAllFavorites } from "../api/fetch";
+import "./Favorites.css";
 
 const Favorites = ({ user, favorites, setFavorites }) => {
   function handleDelete(id) {
@@ -26,18 +25,24 @@ const Favorites = ({ user, favorites, setFavorites }) => {
   }, []);
 
   return (
-    <div>
+    <div className="favorites-container">
       <QuotesForm
         user={user}
         favorites={favorites}
         setFavorites={setFavorites}
       />
-      <ul>
+      <ul className="favorites-ul">
         {favorites.length ? (
           favorites.map((quote) => (
-            <li key={quote.id}>
+            <li className="favorites-li" key={quote.id}>
               "{quote.quote}" -{quote.author}{" "}
-              <button onClick={() => handleDelete(quote.id)}>Remove</button>
+              <button
+                className="favorites-button"
+                onClick={() => handleDelete(quote.id)}
+              >
+                Remove
+              </button>
+              <hr />
             </li>
           ))
         ) : (

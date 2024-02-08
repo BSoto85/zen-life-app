@@ -1,13 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap");
+
+.quote-container {
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  margin-top: 80px;
+}
+
 .quote-p {
   padding: 5px;
+  margin-top: 15px;
   text-align: center;
+  font-family: "Playfair Display", serif !important;
+  background-color: #1a759f;
+  border-radius: 30px;
 }
 
 .quote-button {
   font-family: "Courier New", Courier, monospace;
-  font-size: x-large;
+  font-size: 30px;
   border: none;
-  margin-left: 3px;
+  margin-left: 5px;
   height: fit-content;
   color: goldenrod;
 }
