@@ -37,10 +37,7 @@ const App = () => {
       <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
       <div className="content-wrapper">
         <Routes>
-          <Route
-            path="/"
-            element={<LandingPage user={user} setUser={setUser} />}
-          />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route
             path="/favorites"

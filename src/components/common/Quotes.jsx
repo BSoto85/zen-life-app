@@ -72,7 +72,7 @@ const Quotes = ({ favorites, setFavorites }) => {
   }, []);
 
   return (
-    <div>
+    <div className="quote-container">
       <p className="quote-p">
         {randomQuote}
         <span onClick={handleOnClick} className="quote-button">

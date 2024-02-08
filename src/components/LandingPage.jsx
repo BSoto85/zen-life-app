@@ -1,24 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getAllUsers } from "../api/fetch";
+import React from "react";
 import "../index.css";
 
-const LandingPage = ({ setUser }) => {
-  const [userLocal, setUserLocal] = useState({ names: { firstName: "" } });
-
-  useEffect(() => {
-    getAllUsers()
-      .then((data) => {
-        if (data.length > 0) {
-          const firstUser = data[0];
-          setUserLocal(firstUser);
-          setUser(firstUser);
-        }
-      })
-      .catch((error) => {
-        console.error("Failed to fetch users", error);
-      });
-  }, [setUser]);
-
+const LandingPage = () => {
   const videoSource =
     "https://assets.mixkit.co/videos/preview/mixkit-huge-trees-in-a-large-green-forest-5040-large.mp4";
 

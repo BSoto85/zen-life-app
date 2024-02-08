@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap");
+
+.favorites-container {
+  background-image: url("../images/css-pattern-by-magicpattern.png") no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Playfair Display", serif !important;
+}
+
+.favorites-ul {
+  font-family: "Playfair Display", serif !important;
+  background-color: #1a759f;
+  text-align: center;
+  color: white;
+  border-radius: 30px;
+  display: block;
+  /* justify-content: center;
+  align-items: center; */
+  padding: 10px 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  margin-top: 20px;
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+.favorites-li {
+  font-family: "Playfair Display", serif !important;
+}
+
+.favorites-button {
+  margin-left: 15px;
+  margin-top: 2px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+}
