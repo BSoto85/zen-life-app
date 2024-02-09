@@ -6,11 +6,11 @@ html {
 
 .app-style {
   background-image: url("./images/css-pattern-by-magicpattern.png");
-  background-size: "cover";
-  background-attachment: "fixed";
-  min-height: "100vh";
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
 }
-
 /* b5e48c
 76c893
 34a0a4

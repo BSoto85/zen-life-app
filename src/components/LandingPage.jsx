@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import { Card } from "react-bootstrap";
 
 const LandingPage = () => {
   const videoSource =
@@ -8,6 +9,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page-container">
       <div className="header-container">
+        {/* Video Section */}
         <video
           className="header-video"
           autoPlay
@@ -18,38 +20,20 @@ const LandingPage = () => {
           <source src={videoSource} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
-        <div className="video-overlay">
-          <div className="video-overlay-text">
-            <h1>Welcome to Zen Life!</h1>
-            <p>Explore, Relax, Unwind</p>
-          </div>
+        {/* Desktop Text Overlay */}
+        <div className="video-overlay video-overlay-text">
+          <h1>Welcome to Zen Life!</h1>
+          <p>Explore, Relax, Unwind</p>
         </div>
-      </div>
-      <div className="section-container">
-        <section
-          className="section about-section"
-          style={{ marginBottom: "20px" }}
-        >
-          <h2>About Us</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            tincidunt nisi eget fermentum luctus. Nullam tempus lacus vitae urna
-            ullamcorper, vitae ullamcorper risus porta. Phasellus id enim
-            auctor, bibendum turpis non, commodo lacus.
-          </p>
-        </section>
-        <section
-          className="section contact-section"
-          style={{ marginBottom: "20px" }}
-        >
-          <h2>Contact Us</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            tincidunt nisi eget fermentum luctus. Nullam tempus lacus vitae urna
-            ullamcorper, vitae ullamcorper risus porta. Phasellus id enim
-            auctor, bibendum turpis non, commodo lacus.
-          </p>
-        </section>
+        {/* Mobile Text UI */}
+        <div className="mobile-text-ui">
+          <Card bg="dark" text="white">
+            <Card.Body>
+              <Card.Title>Welcome to Zen Life!</Card.Title>
+              <Card.Text>Explore, Relax, Unwind</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     </div>
   );
