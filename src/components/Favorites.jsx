@@ -46,7 +46,7 @@ const Favorites = ({ user, favorites, setFavorites }) => {
             </li>
           ))
         ) : (
-          <p>No quotes favorited</p>
+          <p className="favorites-p">No quotes favorited</p>
         )}
       </ul>
     </div>
