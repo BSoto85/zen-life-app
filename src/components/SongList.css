@@ -1,22 +1,27 @@
+body {
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 70, 1) 100%);
+}
+
+
+
 .song-list-container {
   max-width: 800px;
   margin: auto;
   padding: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 75px;
   background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
 }
 
 .song-list {
-  list-style-type: square;
+  list-style-type: decimal;
   list-style-position: inside;
   display: grid;
   flex-wrap: wrap;
   gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .song-list {
@@ -25,6 +30,7 @@
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3;
+
 }
 
 .song-list li:hover {
@@ -33,4 +39,5 @@
 
 .now-playing {
   margin-top: 20px;
+  padding-bottom: 10px;
 }
