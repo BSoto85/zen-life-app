@@ -29,7 +29,6 @@ const Quotes = ({ favorites, setFavorites }) => {
         return quote.id === randomQuoteId;
       });
       addQuoteToFavorites(quoteToFavorite).then((data) => {
-        console.log("Data from post request", data);
         favorites.length === 0
           ? setFavorites([quoteToFavorite])
           : setFavorites([...favorites, quoteToFavorite]);
@@ -38,7 +37,6 @@ const Quotes = ({ favorites, setFavorites }) => {
       deleteQuote(randomQuoteId)
         .then(
           getAllFavorites().then((data) => {
-            console.log("------", data);
             setFavorites(data);
           })
         )

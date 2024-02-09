@@ -48,12 +48,17 @@ Personas:
 - Quotes can be removed by clicking the `Remove` button next to the quote.
 - Click on the `About the Devs` link to learn more about the developers of the **Zen Life App**.
 
+## Wireframes
+
+[Zen Life Wireframes](https://wireframe.cc/AxOHXO)
+
 ## Extras
 
 - Music, that does not also have a video, will loop.
 - Quotes can be favorited and added to a Favorites list.
 - Both BootStrap and CSS were used for styling.
 - fetch.js file created for organization to hold all of the fetch functions.
+- Cloudinary was used to store images, videos, and music for our app.
 
 ## Link
 

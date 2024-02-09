@@ -73,10 +73,10 @@ const QuotesForm = ({ favorites, setFavorites }) => {
               onChange={handleOnChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" className="quotes-button">
+          <button type="submit" className="quotes-button">
             {" "}
             Add Quote
-          </Button>
+          </button>
         </Form>
       </div>
     </div>
