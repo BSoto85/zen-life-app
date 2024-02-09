@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { FaBars } from "react-icons/fa";
@@ -7,74 +7,51 @@ import "../../sidebar.css";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsSidebarOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
       <Navbar
         bg="dark"
         variant="dark"
+        expand="md"
         fixed="top"
         className="fixed-top"
-        style={{ height: "80px" }}
+        style={{ height: "80px", display: "flex", alignItems: "center" }}
       >
-        <Container style={{ marginTop: "10px" }}>
-          <Navbar.Brand
-            as={Link}
-            to="/"
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontWeight: "bold",
-              fontSize: "32px",
-              color: "#fff",
-              marginBottom: "10px",
-            }}
-          >
+        <Container>
+          <Navbar.Brand as={Link} to="/" className="navbar-brand">
             Zen Life
           </Navbar.Brand>
-          <Nav className="ml-auto d-none d-md-flex">
-            <Nav.Link
-              as={Link}
-              to="/"
-              style={{ color: "#fff", marginRight: "10px" }}
-            >
+          <Nav className="d-none d-md-flex align-items-center">
+            <Nav.Link as={Link} to="/" className="navbar-btn home-btn">
               Home
-              <div className="hover-line"></div>
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/about"
-              style={{ color: "#fff", marginRight: "10px" }}
-            >
+            <Nav.Link as={Link} to="/about" className="navbar-btn">
               About
-              <div className="hover-line"></div>
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/profile"
-              style={{ color: "#fff", marginRight: "10px" }}
-            >
-              Profile
-              <div className="hover-line"></div>
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/favorites"
-              style={{ color: "#fff", marginRight: "10px" }}
-            >
+            <Nav.Link as={Link} to="/favorites" className="navbar-btn">
               Favorites
-              <div className="hover-line"></div>
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/songs"
-              style={{ color: "#fff", marginRight: "10px" }}
-            >
+            <Nav.Link as={Link} to="/songs" className="navbar-btn">
               Songs
-              <div className="hover-line"></div>
             </Nav.Link>
           </Nav>
           <Button
@@ -88,20 +65,21 @@ const Header = () => {
               fontSize: "24px",
             }}
           >
-            <FaBars style={{ transform: "rotate(45deg)" }} />
+            <FaBars />
           </Button>
         </Container>
       </Navbar>
-
       <div
+        ref={sidebarRef}
         className={`offcanvas offcanvas-end${isSidebarOpen ? " show" : ""}`}
         tabIndex="-1"
         id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel"
+        style={{ width: "250px" }}
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-            Offcanvas
+            Menu
           </h5>
           <Button
             type="button"
@@ -111,29 +89,43 @@ const Header = () => {
           ></Button>
         </div>
         <div className="offcanvas-body">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
+          <ul
+            className="navbar-nav justify-content-end flex-grow-1 pe-3"
+            style={{ alignItems: "center" }}
+          >
+            <li
+              className="nav-item"
+              style={{ fontSize: "20px", margin: "20px 0" }}
+            >
+              <Link to="/" className="nav-link" onClick={toggleSidebar}>
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
+            <li
+              className="nav-item"
+              style={{ fontSize: "20px", margin: "20px 0" }}
+            >
+              <Link to="/about" className="nav-link" onClick={toggleSidebar}>
                 About
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/profile" className="nav-link">
-                Profile
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/favorites" className="nav-link">
+            <li
+              className="nav-item"
+              style={{ fontSize: "20px", margin: "20px 0" }}
+            >
+              <Link
+                to="/favorites"
+                className="nav-link"
+                onClick={toggleSidebar}
+              >
                 Favorites
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/songs" className="nav-link">
+            <li
+              className="nav-item"
+              style={{ fontSize: "20px", margin: "20px 0" }}
+            >
+              <Link to="/songs" className="nav-link" onClick={toggleSidebar}>
                 Songs
               </Link>
             </li>

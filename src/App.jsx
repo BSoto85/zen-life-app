@@ -31,10 +31,15 @@ const App = () => {
       });
   }, []);
 
+  const isLandingPage = location.pathname === "/";
+
   return (
     <div className="app-style">
       <Header />
-      <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
+
+      {!isLandingPage && (
+        <Quotes favorites={favorites} user={user} setFavorites={setFavorites} />
+      )}
       <div className="content-wrapper">
         <Routes>
           <Route path="/" element={<LandingPage />} />

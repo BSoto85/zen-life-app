@@ -33,10 +33,6 @@ body {
 
 }
 
-.song-list li:hover {
-  background-color: aqua;
-}
-
 .now-playing {
   margin-top: 20px;
   padding-bottom: 10px;
